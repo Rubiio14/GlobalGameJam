@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class BubbleBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject concha;
     [SerializeField] private Transform[] _waypoints;
-
     [SerializeField] private float _movSpeed = 2.5f;
     public int currentWaypoint = 0;
 
@@ -29,6 +29,7 @@ public class BubbleBehaviour : MonoBehaviour
         {
             Debug.Log("Se han recorrido todos los waypoints. Desactivando la burbuja.");
             this.gameObject.SetActive(false);
+            concha.gameObject.SetActive(true);
         }
     }  
 }

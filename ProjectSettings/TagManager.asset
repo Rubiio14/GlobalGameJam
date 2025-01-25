@@ -11,6 +11,7 @@ TagManager:
   - Concha
   - Estrella
   - WoodenBox
+  - BlockedDoor
   layers:
   - Default
   - TransparentFX

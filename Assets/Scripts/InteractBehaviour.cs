@@ -64,13 +64,14 @@ public class InteractBehaviour : MonoBehaviour
     private void interactWoodenBox()
     {
         woodenBoxScript.puzzleComplete();
+        woodenBoxScript.ChangePompero();
     }
 
 
 
     private void ResetActionTrigger()
     {
-        actionTriggered = false;
+        actionTriggered = false;      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,6 +86,10 @@ public class InteractBehaviour : MonoBehaviour
         {
             canInteractStar = true;
             Debug.Log("Jugador dentro del trigger. Puede interactuar.");
+        }
+        if (other.CompareTag("BlockedDoor") && gameObject.GetComponent<CollectableItem>().concha && gameObject.GetComponent<CollectableItem>().concha)
+        {
+            other.gameObject.GetComponent<DoorController>().canOpen = true;
         }
     }
 
