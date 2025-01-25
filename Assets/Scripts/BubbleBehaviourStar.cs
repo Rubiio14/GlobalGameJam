@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BubbleBehaviour : MonoBehaviour
+public class BubbleBehaviourStar : MonoBehaviour
 {
     [SerializeField] private Transform[] _waypoints;
 
@@ -12,7 +12,7 @@ public class BubbleBehaviour : MonoBehaviour
     void Start()
     {
         transform.position = _waypoints[currentWaypoint].position;
-       
+
     }
     void Update()
     {
@@ -23,12 +23,12 @@ public class BubbleBehaviour : MonoBehaviour
     }
 
     public void nextWaypoint()
-    { 
+    {
         currentWaypoint++;
         if (currentWaypoint >= _waypoints.Length)
         {
             Debug.Log("Se han recorrido todos los waypoints. Desactivando la burbuja.");
             this.gameObject.SetActive(false);
         }
-    }  
+    }
 }
