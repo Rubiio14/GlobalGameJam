@@ -36,7 +36,7 @@
                     "name": "Camera",
                     "type": "Value",
                     "id": "4094de53-d204-4b8c-a141-9fc28b093926",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -253,42 +253,20 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "JL",
-                    "id": "33f4a414-3fea-4ea3-8f5a-26577cf237a5",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "bd642580-a68e-4679-b228-8294fb0975bd",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Camera",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Negative",
-                    "id": "3747a2c5-1e3e-4521-8e6c-bc711300186f",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Positive",
-                    "id": "03e2d011-7d13-4798-993e-46873936d0d7",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
-                    "id": "7d5ad920-2427-432c-9fa4-80bab9166905",
-                    "path": "<Gamepad>/rightStick/x",
+                    "id": "04c15b62-9def-4bc3-8658-6692496ad62e",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

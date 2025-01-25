@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     // Atributos
     private Rigidbody rb;
-    private Vector3 movementInput;
+    private Vector2 moveInput; // Solo guarda el input del jugador
+    private Vector2 lookInput;
+    private float verticalRotation = 0f;
 
     void Start()
     {
@@ -21,7 +24,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
-        HandleInput();
         CameraMovement();
     }
 
@@ -30,51 +32,66 @@ public class PlayerBehaviour : MonoBehaviour
         PlayerMovement();
     }
 
-    private void HandleInput()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        movementInput = (transform.forward * vertical + transform.right * horizontal).normalized;
+        // Leer el input de movimiento del jugador
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        lookInput = context.ReadValue<Vector2>();
     }
 
     private void PlayerMovement()
     {
-        if (movementInput != Vector3.zero)
+        // Si hay input de movimiento
+        if (moveInput != Vector2.zero)
         {
-            Vector3 velocity = movementInput * playerSpeed;
-            velocity.y = rb.linearVelocity.y; // Mantén la velocidad vertical (gravedad)
+            // Obtener la dirección basada en la orientación de la cámara
+            Vector3 forward = camera.forward;
+            Vector3 right = camera.right;
+
+            // Ignorar la componente vertical para evitar movimiento en Y
+            forward.y = 0f;
+            right.y = 0f;
+
+            forward.Normalize();
+            right.Normalize();
+
+            // Combinar los inputs con la orientación de la cámara
+            Vector3 movementDirection = (forward * moveInput.y + right * moveInput.x).normalized;
+
+            // Aplicar movimiento
+            Vector3 velocity = movementDirection * playerSpeed;
+            velocity.y = rb.linearVelocity.y; // Mantener la velocidad vertical (gravedad)
+            rb.linearVelocity = velocity;
+        }
+        else
+        {
+            // Si no hay input, detener el movimiento horizontal
+            Vector3 velocity = rb.linearVelocity;
+            velocity.x = 0;
+            velocity.z = 0;
             rb.linearVelocity = velocity;
         }
     }
 
     private void CameraMovement()
     {
-        float horizontal = Input.GetAxis("Mouse X");
-        float vertical = Input.GetAxis("Mouse Y");
-
         // Rotación horizontal (gira al jugador)
-        if (horizontal != 0)
+        if (lookInput.x != 0)
         {
-            transform.Rotate(0, horizontal * horCameraSens, 0);
+            transform.Rotate(0, lookInput.x * horCameraSens, 0);
         }
 
         // Rotación vertical (gira la cámara)
-        if (vertical != 0)
+        if (lookInput.y != 0)
         {
-            Vector3 cameraRotation = camera.localEulerAngles;
-            cameraRotation.x = (cameraRotation.x - vertical * verCameraSens + 360) % 360;
+            verticalRotation -= lookInput.y * verCameraSens;
+            verticalRotation = Mathf.Clamp(verticalRotation, -80f, 80f); // Limitar rotación vertical
 
-            // Limita la rotación vertical para evitar giros completos
-            if (cameraRotation.x > 80 && cameraRotation.x < 180)
-            {
-                cameraRotation.x = 80;
-            }
-            else if (cameraRotation.x < 280 && cameraRotation.x > 180)
-            {
-                cameraRotation.x = 280;
-            }
-
-            camera.localEulerAngles = cameraRotation;
+            camera.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
         }
     }
 }
