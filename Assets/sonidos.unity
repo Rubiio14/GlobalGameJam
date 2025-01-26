@@ -1221,6 +1221,20 @@ MonoBehaviour:
       Data3: 469996455
       Data4: -1017284678
     Path: event:/SFX/piano
+  <Click>k__BackingField:
+    Guid:
+      Data1: -1978839728
+      Data2: 1196130043
+      Data3: -1306532979
+      Data4: 750034813
+    Path: event:/click
+  <Hover>k__BackingField:
+    Guid:
+      Data1: 530554307
+      Data2: 1131392180
+      Data3: 17317036
+      Data4: 590105397
+    Path: event:/hover
   <Caminar>k__BackingField:
     Guid:
       Data1: 2007127104
@@ -20899,6 +20913,7 @@ MonoBehaviour:
   - {fileID: 1104553447}
   - {fileID: 224678089}
   _movSpeed: 2.5
+  Video: {fileID: 0}
   currentWaypoint: 0
 --- !u!23 &1867228434
 MeshRenderer:
