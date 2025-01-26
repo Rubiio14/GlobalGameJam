@@ -5,11 +5,13 @@ public class InteractBehaviour : MonoBehaviour
 {
     public BubbleBehaviour bubbleScript;
     public BubbleBehaviourStar bubbleScriptStar;
+    public BubbleBehaviourTV bubbleTVStar;
     public woodenBoxBehaviour woodenBoxScript;
     public CollectableItem _collectableItemScript;
 
     private bool canInteract = false; // Indica si el jugador está dentro del trigger
     private bool canInteractStar = false;
+    private bool canInteractTV = false;
     private bool actionTriggered = false; // Evita múltiples ejecuciones por un solo clic
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -22,6 +24,10 @@ public class InteractBehaviour : MonoBehaviour
         if (context.performed && canInteractStar && !actionTriggered)
         {
             interactActionStar();
+        }
+        if (context.performed && canInteractTV && !actionTriggered)
+        {
+            interactActionTV();
         }
 
         if (context.performed && woodenBoxScript.puzzleActivation && !actionTriggered)
@@ -46,12 +52,23 @@ public class InteractBehaviour : MonoBehaviour
         // Desbloquear después de un breve intervalo para permitir otra interacción
         Invoke(nameof(ResetActionTrigger), 0.1f); // Tiempo de bloqueo ajustable
     }
-
-
     private void interactActionStar()
     {
         // Ejecutar acción de interacción
         bubbleScriptStar.nextWaypoint();
+        Debug.Log("Acción interact ejecutada");
+
+        // Bloquear para evitar múltiples ejecuciones
+        actionTriggered = true;
+
+        // Desbloquear después de un breve intervalo para permitir otra interacción
+        Invoke(nameof(ResetActionTrigger), 0.1f); // Tiempo de bloqueo ajustable
+    }
+
+    private void interactActionTV()
+    {
+        // Ejecutar acción de interacción
+        bubbleTVStar.nextWaypoint();
         Debug.Log("Acción interact ejecutada");
 
         // Bloquear para evitar múltiples ejecuciones
@@ -85,6 +102,11 @@ public class InteractBehaviour : MonoBehaviour
         if (other.CompareTag("activateTriggerStar"))
         {
             canInteractStar = true;
+            Debug.Log("Jugador dentro del trigger. Puede interactuar.");
+        }
+        if (other.CompareTag("activateTriggerTV"))
+        {
+            canInteractTV = true;
             Debug.Log("Jugador dentro del trigger. Puede interactuar.");
         }
         if (other.CompareTag("BlockedDoor") && gameObject.GetComponent<CollectableItem>().concha && gameObject.GetComponent<CollectableItem>().concha)
