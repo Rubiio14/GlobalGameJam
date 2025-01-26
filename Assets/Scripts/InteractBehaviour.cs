@@ -8,6 +8,7 @@ public class InteractBehaviour : MonoBehaviour
     public BubbleBehaviourTV bubbleTVStar;
     public woodenBoxBehaviour woodenBoxScript;
     public CollectableItem _collectableItemScript;
+    public Animator animator;
 
     private bool canInteract = false; // Indica si el jugador está dentro del trigger
     private bool canInteractStar = false;
@@ -16,28 +17,32 @@ public class InteractBehaviour : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        // Solo ejecutar en la fase 'performed' si la interacción está habilitada y no se ha ejecutado ya
-        if (context.performed && canInteract && !actionTriggered)
+        if (context.performed)
         {
-            interactAction();
-        }
-        if (context.performed && canInteractStar && !actionTriggered)
-        {
-            interactActionStar();
-        }
-        if (context.performed && canInteractTV && !actionTriggered)
-        {
-            interactActionTV();
-        }
-
-        if (context.performed && woodenBoxScript.puzzleActivation && !actionTriggered)
-        {
-            if(_collectableItemScript.concha && _collectableItemScript.estrella)
+            // Solo ejecutar en la fase 'performed' si la interacción está habilitada y no se ha ejecutado ya
+            if (context.performed && canInteract && !actionTriggered)
             {
-                interactWoodenBox();
+                interactAction();
             }
-            
+            if (context.performed && canInteractStar && !actionTriggered)
+            {
+                interactActionStar();           
+            }
+            if (context.performed && canInteractTV && !actionTriggered)
+            {
+                interactActionTV();            
+            }
+
+            if (context.performed && woodenBoxScript.puzzleActivation && !actionTriggered)
+            {
+                if (_collectableItemScript.concha && _collectableItemScript.estrella)
+                {
+                    interactWoodenBox();   
+                }
+
+            }
         }
+        
     }
 
     private void interactAction()
@@ -45,7 +50,8 @@ public class InteractBehaviour : MonoBehaviour
         // Ejecutar acción de interacción
         bubbleScript.nextWaypoint();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
-        
+        animator.SetBool("Interact", true);
+
         Debug.Log("Acción interact ejecutada");
 
         // Bloquear para evitar múltiples ejecuciones
@@ -59,6 +65,7 @@ public class InteractBehaviour : MonoBehaviour
         // Ejecutar acción de interacción
         bubbleScriptStar.nextWaypoint();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
+        animator.SetBool("Interact", true);
         Debug.Log("Acción interact ejecutada");
 
         // Bloquear para evitar múltiples ejecuciones
@@ -73,6 +80,7 @@ public class InteractBehaviour : MonoBehaviour
         // Ejecutar acción de interacción
         bubbleTVStar.nextWaypoint();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
+        animator.SetBool("Interact", true);
         Debug.Log("Acción interact ejecutada");
 
         // Bloquear para evitar múltiples ejecuciones
@@ -85,6 +93,7 @@ public class InteractBehaviour : MonoBehaviour
     private void interactWoodenBox()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
+        animator.SetBool("Interact", true);
         woodenBoxScript.puzzleComplete();
         woodenBoxScript.ChangePompero();
     }

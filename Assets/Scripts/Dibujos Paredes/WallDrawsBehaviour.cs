@@ -8,7 +8,7 @@ public class WallDrawsBehaviour : MonoBehaviour
     public GameObject bubble; // Esfera hija que será desactivada
     public SpriteRenderer wallDraw; // Sprite que cambiará su alpha
     public float fadeSpeed = 1f; // Velocidad de cambio de alpha
-
+    public Animator animator;
     void Update()
     {
         // Si el jugador está dentro y está interactuando
@@ -18,6 +18,11 @@ public class WallDrawsBehaviour : MonoBehaviour
             Color currentColor = wallDraw.color;
             currentColor.a = Mathf.Min(currentColor.a + fadeSpeed * Time.deltaTime, 1f); // Máximo alpha = 1
             wallDraw.color = currentColor;
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("rig|BlowBubbles") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1f)
+        {
+            animator.SetBool("Interact", false);
         }
     }
 
@@ -47,6 +52,7 @@ public class WallDrawsBehaviour : MonoBehaviour
             playerInteract = true;
             AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
             AudioManager.instance.PlayOneShot(FMODEvents.instance.ExplotarBurbuja, this.transform.position);
+            animator.SetBool("Interact", true);
             bubble.SetActive(false); // Desactiva la burbuja al interactuar
         }
     }

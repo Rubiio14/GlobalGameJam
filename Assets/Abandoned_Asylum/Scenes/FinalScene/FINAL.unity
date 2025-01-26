@@ -265,6 +265,7 @@ MonoBehaviour:
   bubble: {fileID: 1816011873}
   wallDraw: {fileID: 1234847431}
   fadeSpeed: 1
+  animator: {fileID: 1480089928}
 --- !u!65 &17477076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -538,6 +539,7 @@ MonoBehaviour:
   bubble: {fileID: 1198852009}
   wallDraw: {fileID: 1603210835}
   fadeSpeed: 1
+  animator: {fileID: 1480089928}
 --- !u!65 &33622630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3983,6 +3985,7 @@ MonoBehaviour:
   bubble: {fileID: 124537513}
   wallDraw: {fileID: 147332006}
   fadeSpeed: 1
+  animator: {fileID: 1480089928}
 --- !u!65 &262823715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8411,6 +8414,7 @@ MonoBehaviour:
   bubble: {fileID: 718732222}
   wallDraw: {fileID: 1886349126}
   fadeSpeed: 1
+  animator: {fileID: 1480089928}
 --- !u!65 &618605107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15394,6 +15398,7 @@ MonoBehaviour:
   bubble: {fileID: 1922921712}
   wallDraw: {fileID: 1238610976}
   fadeSpeed: 1
+  animator: {fileID: 1480089928}
 --- !u!65 &1133233186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20204,6 +20209,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4204587028896049794, guid: bac8fab120f3f7d439b707577a8b904d, type: 3}
   m_PrefabInstance: {fileID: 1125961105}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1480089928 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8990181081389186808, guid: bac8fab120f3f7d439b707577a8b904d, type: 3}
+  m_PrefabInstance: {fileID: 1125961105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1485413455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21329,6 +21339,7 @@ MonoBehaviour:
   bubble: {fileID: 1641116077}
   wallDraw: {fileID: 2019594915}
   fadeSpeed: 1
+  animator: {fileID: 1480089928}
 --- !u!65 &1575979711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27577,6 +27588,7 @@ MonoBehaviour:
   bubbleTVStar: {fileID: 895790107}
   woodenBoxScript: {fileID: 1884326374}
   _collectableItemScript: {fileID: 2034774950}
+  animator: {fileID: 1480089928}
 --- !u!114 &2034774953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27593,6 +27605,7 @@ MonoBehaviour:
   camera: {fileID: 234005912}
   horCameraSens: 2
   verCameraSens: 2
+  animator: {fileID: 1480089928}
 --- !u!54 &2034774954
 Rigidbody:
   m_ObjectHideFlags: 0

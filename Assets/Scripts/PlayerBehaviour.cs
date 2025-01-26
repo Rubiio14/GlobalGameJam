@@ -13,6 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Audio")]
     public EventInstance playerFootSteps;
+    public Animator animator;
 
     // Atributos
     private Rigidbody rb;
@@ -42,6 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         // Leer el input de movimiento del jugador
         moveInput = context.ReadValue<Vector2>();
+        
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -79,15 +81,18 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 Debug.Log("music playing");
                 playerFootSteps.start();
+                animator.SetBool("Walk", true);
             }
             else
             {
+                animator.SetBool("Walk", false);
                 Debug.Log("music stopped");
             }
         }
         else
         {
             // Si no hay input, detener el movimiento horizontal
+            animator.SetBool("Walk", false);
             Vector3 velocity = rb.linearVelocity;
             velocity.x = 0;
             velocity.z = 0;
