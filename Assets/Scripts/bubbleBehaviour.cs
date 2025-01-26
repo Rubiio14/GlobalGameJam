@@ -29,6 +29,7 @@ public class BubbleBehaviour : MonoBehaviour
         {
             Debug.Log("Se han recorrido todos los waypoints. Desactivando la burbuja.");
             this.gameObject.SetActive(false);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.ExplotarBurbuja, this.transform.position);
             concha.gameObject.SetActive(true);
         }
     }  

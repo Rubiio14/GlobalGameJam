@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
+using FMODUnity;
 
 public class LluviaSangre : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class LluviaSangre : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        sangre.SetActive(true); // Activar la sangre (lo que sea que haga tu objeto sangre)
+        sangre.SetActive(true);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Lluvia, this.transform.position);
         colorAdjustments.colorFilter.value = new Color(1f, 0.4f, 0.4f);
         StartCoroutine(CambiarColorAblanco());
     }

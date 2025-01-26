@@ -44,6 +44,8 @@ public class InteractBehaviour : MonoBehaviour
     {
         // Ejecutar acción de interacción
         bubbleScript.nextWaypoint();
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
+        
         Debug.Log("Acción interact ejecutada");
 
         // Bloquear para evitar múltiples ejecuciones
@@ -56,6 +58,7 @@ public class InteractBehaviour : MonoBehaviour
     {
         // Ejecutar acción de interacción
         bubbleScriptStar.nextWaypoint();
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
         Debug.Log("Acción interact ejecutada");
 
         // Bloquear para evitar múltiples ejecuciones
@@ -69,6 +72,7 @@ public class InteractBehaviour : MonoBehaviour
     {
         // Ejecutar acción de interacción
         bubbleTVStar.nextWaypoint();
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
         Debug.Log("Acción interact ejecutada");
 
         // Bloquear para evitar múltiples ejecuciones
@@ -80,6 +84,7 @@ public class InteractBehaviour : MonoBehaviour
 
     private void interactWoodenBox()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
         woodenBoxScript.puzzleComplete();
         woodenBoxScript.ChangePompero();
     }

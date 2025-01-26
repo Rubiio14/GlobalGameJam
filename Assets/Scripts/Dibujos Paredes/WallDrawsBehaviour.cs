@@ -45,6 +45,8 @@ public class WallDrawsBehaviour : MonoBehaviour
         {
             // Si el jugador comienza a interactuar y está dentro del trigger
             playerInteract = true;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.SoplarBurbujas, this.transform.position);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.ExplotarBurbuja, this.transform.position);
             bubble.SetActive(false); // Desactiva la burbuja al interactuar
         }
     }

@@ -28,6 +28,7 @@ public class BubbleBehaviourTV : MonoBehaviour
         if (currentWaypoint >= _waypoints.Length)
         {
             Debug.Log("Se han recorrido todos los waypoints. Desactivando la burbuja.");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.ExplotarBurbuja, this.transform.position);
             this.gameObject.SetActive(false);
             Video.SetActive(true);
             //Empezar Cinemática
