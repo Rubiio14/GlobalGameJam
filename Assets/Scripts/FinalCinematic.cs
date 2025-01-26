@@ -4,7 +4,6 @@ using UnityEngine.Video;
 public class FinalCinematic : MonoBehaviour
 {
     public GameObject canvasVideo;
-    public VideoPlayer video;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +22,6 @@ public class FinalCinematic : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canvasVideo.SetActive(true);
-            video.Play();
         }
     }
 }
