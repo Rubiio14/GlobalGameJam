@@ -12,6 +12,7 @@ TagManager:
   - Estrella
   - WoodenBox
   - BlockedDoor
+  - activateTriggerTV
   layers:
   - Default
   - TransparentFX
