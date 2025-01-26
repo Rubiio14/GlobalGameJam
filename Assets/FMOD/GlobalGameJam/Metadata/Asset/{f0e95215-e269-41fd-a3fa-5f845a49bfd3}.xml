@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{f0e95215-e269-41fd-a3fa-5f845a49bfd3}">
+		<property name="assetPath">
+			<value>sonidos/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{85a115dc-c74a-4dc0-8845-22c60babff63}</destination>
+		</relationship>
+	</object>
+</objects>
