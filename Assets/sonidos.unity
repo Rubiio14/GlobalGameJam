@@ -1186,6 +1186,41 @@ MonoBehaviour:
       Data3: -1940208222
       Data4: -1641315403
     Path: event:/puerta
+  <AudioProyector>k__BackingField:
+    Guid:
+      Data1: 2132298451
+      Data2: 1290955450
+      Data3: 2040993430
+      Data4: 1776106787
+    Path: event:/audioproyector
+  <Lluvia>k__BackingField:
+    Guid:
+      Data1: -666574794
+      Data2: 1190154776
+      Data3: 960636821
+      Data4: 1414725769
+    Path: event:/lluvia sangre
+  <Canto>k__BackingField:
+    Guid:
+      Data1: -1771508007
+      Data2: 1298643686
+      Data3: -1022561880
+      Data4: -1489311525
+    Path: event:/SFX/canto
+  <Platos>k__BackingField:
+    Guid:
+      Data1: -655902288
+      Data2: 1270482201
+      Data3: -1713094758
+      Data4: 787796693
+    Path: event:/platos
+  <Piano>k__BackingField:
+    Guid:
+      Data1: 1263789069
+      Data2: 1292643457
+      Data3: 469996455
+      Data4: -1017284678
+    Path: event:/SFX/piano
   <Caminar>k__BackingField:
     Guid:
       Data1: 2007127104
@@ -22423,6 +22458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2475def9332e4e644b5c0e29f67e5755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sillas: []
   concha: 0
   estrella: 0
 --- !u!114 &2034774951

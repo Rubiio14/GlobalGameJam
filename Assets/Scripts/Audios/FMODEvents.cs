@@ -10,6 +10,21 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Abrir Puerta")]
     [field: SerializeField] public EventReference AbrirPuerta { get; private set; }
 
+    [field: Header("Audio Video Proyector")]
+    [field: SerializeField] public EventReference AudioProyector { get; private set; }
+
+    [field: Header("LLuvia sangre")]
+    [field: SerializeField] public EventReference Lluvia { get; private set; }
+
+    [field: Header("Canto sirena")]
+    [field: SerializeField] public EventReference Canto { get; private set; }
+
+    [field: Header("Platos partiendose")]
+    [field: SerializeField] public EventReference Platos { get; private set; }
+
+    [field: Header("Piano")]
+    [field: SerializeField] public EventReference Piano { get; private set; }
+
 
     [field: Header("Caminar")]
     [field: SerializeField] public EventReference Caminar { get; private set; }
