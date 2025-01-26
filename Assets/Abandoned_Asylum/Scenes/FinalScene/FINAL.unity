@@ -8877,9 +8877,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR4 Blood Falling
       objectReference: {fileID: 0}
+    - target: {fileID: 6077168872989578693, guid: 1afd0a8b5617d1b449a4e1a3ac8beca7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6077168872989578746, guid: 1afd0a8b5617d1b449a4e1a3ac8beca7, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 189.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077168872989578746, guid: 1afd0a8b5617d1b449a4e1a3ac8beca7, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077168872989578746, guid: 1afd0a8b5617d1b449a4e1a3ac8beca7, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077168872989578746, guid: 1afd0a8b5617d1b449a4e1a3ac8beca7, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.15923567
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077168872989578746, guid: 1afd0a8b5617d1b449a4e1a3ac8beca7, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12456,6 +12476,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921490900}
   m_Mesh: {fileID: 4300000, guid: c833e90bb9060764da5ec0e3726bda1a, type: 3}
+--- !u!1 &923187021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6077168872989578693, guid: 1afd0a8b5617d1b449a4e1a3ac8beca7, type: 3}
+  m_PrefabInstance: {fileID: 653186394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &935308837
 GameObject:
   m_ObjectHideFlags: 0
@@ -15673,6 +15698,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183212097}
   m_Mesh: {fileID: 4300000, guid: 30a37ce794ca1c94192e4d8721b12940, type: 3}
+--- !u!1 &1184027863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1184027866}
+  - component: {fileID: 1184027865}
+  - component: {fileID: 1184027864}
+  m_Layer: 0
+  m_Name: LluviaTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1184027864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184027863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9082e60a4735c3e47a13d26028afc4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sangre: {fileID: 923187021}
+  GlobalVolume: {fileID: 1662594856}
+--- !u!65 &1184027865
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184027863}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6959844, y: 1, z: 1.3887097}
+  m_Center: {x: 1.0628432, y: 3.0870076e-16, z: -0.19435483}
+--- !u!4 &1184027866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184027863}
+  serializedVersion: 2
+  m_LocalRotation: {x: -1.3552527e-20, y: 1, z: 0.00000003774895, w: 0}
+  m_LocalPosition: {x: -3.512, y: 4.53, z: -12.7}
+  m_LocalScale: {x: 0.91239, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1187560711
 GameObject:
   m_ObjectHideFlags: 0
@@ -33733,4 +33826,5 @@ SceneRoots:
   - {fileID: 1133233187}
   - {fileID: 33622631}
   - {fileID: 262823716}
+  - {fileID: 1184027866}
   - {fileID: 653186394}
