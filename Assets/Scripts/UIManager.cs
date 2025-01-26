@@ -1,9 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class UIManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settings;
     public GameObject pause;
+    public EventSystem eventSystem;
+    public Button play;
+    public Button settingsSelected;
+    public Button resume;
     public bool paused;
     public bool settingsMenu;
     public bool mainMenuUI;
@@ -19,6 +25,11 @@ public class UIManager : MonoBehaviour
     {
         paused = false;
         settingsMenu = false;
+    }
+
+    private void Update()
+    {
+
     }
 
     public void InputPause(InputAction.CallbackContext context)
@@ -47,12 +58,14 @@ public class UIManager : MonoBehaviour
     public void LoadLevelScene()
     {
         SceneManager.LoadScene(1);
+        eventSystem.SetSelectedGameObject(resume.gameObject);
     }
 
     //Load the main menu scene when player press the main menu button in the pause pop up
     public void LoadMenuScene()
     {
         SceneManager.LoadScene(0);
+        eventSystem.SetSelectedGameObject(play.gameObject);
     }
 
     //Active the UI settings
@@ -63,6 +76,7 @@ public class UIManager : MonoBehaviour
             settingsMenu = true;
             mainMenu.SetActive(false);
             settings.SetActive(true);
+            eventSystem.SetSelectedGameObject(settingsSelected.gameObject);
         }
 
         if (pause != null)
@@ -70,6 +84,7 @@ public class UIManager : MonoBehaviour
             settingsMenu = true;
             pause.SetActive(false);
             settings.SetActive(true);
+            eventSystem.SetSelectedGameObject(settingsSelected.gameObject);
         }
     }
 
@@ -82,12 +97,14 @@ public class UIManager : MonoBehaviour
         if (SceneManager.GetSceneByBuildIndex(0).isLoaded && settings != null)
         {
             mainMenu.SetActive(true);
+            eventSystem.SetSelectedGameObject(play.gameObject);
         }
 
         //Pause menu settings
         if (SceneManager.GetSceneByBuildIndex(1).isLoaded && settings != null)
         {
             pause.SetActive(true);
+            eventSystem.SetSelectedGameObject(resume.gameObject);
         }
     }
 
@@ -102,6 +119,7 @@ public class UIManager : MonoBehaviour
     {
         paused = true;
         pause.SetActive(true);
+        eventSystem.SetSelectedGameObject(resume.gameObject);
     }
 
     //Close pause menu

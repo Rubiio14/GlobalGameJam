@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerBehaviour : MonoBehaviour
     public Transform camera;
     [SerializeField, Range(0f, 10f)][Tooltip("Sensibilidad cámara eje horizontal")] public float horCameraSens = 2f;
     [SerializeField, Range(0f, 10f)][Tooltip("Sensibilidad cámara eje vertical")] public float verCameraSens = 2f;
+
+    [Header("Audio")]
+    public EventInstance playerFootSteps;
 
     // Atributos
     private Rigidbody rb;
@@ -20,6 +24,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+
+        playerFootSteps = AudioManager.instance.CreateInstance(FMODEvents.instance.Footsteps);
     }
 
     void Update()
@@ -66,6 +72,18 @@ public class PlayerBehaviour : MonoBehaviour
             Vector3 velocity = movementDirection * playerSpeed;
             velocity.y = rb.linearVelocity.y; // Mantener la velocidad vertical (gravedad)
             rb.linearVelocity = velocity;
+
+            PLAYBACK_STATE playbackState;
+            playerFootSteps.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                Debug.Log("music playing");
+                playerFootSteps.start();
+            }
+            else
+            {
+                Debug.Log("music stopped");
+            }
         }
         else
         {
@@ -74,6 +92,7 @@ public class PlayerBehaviour : MonoBehaviour
             velocity.x = 0;
             velocity.z = 0;
             rb.linearVelocity = velocity;
+            playerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
 

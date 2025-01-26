@@ -1186,6 +1186,13 @@ MonoBehaviour:
       Data3: -1940208222
       Data4: -1641315403
     Path: event:/puerta
+  <Footsteps>k__BackingField:
+    Guid:
+      Data1: 2007127104
+      Data2: 1322486600
+      Data3: 908843405
+      Data4: -1740728377
+    Path: event:/pasos
   <AudioProyector>k__BackingField:
     Guid:
       Data1: 2132298451
