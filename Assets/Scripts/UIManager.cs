@@ -6,6 +6,7 @@ using UnityEngine.InputSystem.Interactions;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.InputSystem.DefaultInputActions;
 
 public class UIManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class UIManager : MonoBehaviour
         {
             if (paused == false && SceneManager.GetSceneByBuildIndex(1).isLoaded && settingsMenu == false)
             {
+                Debug.Log("entra");
                 PauseLVL();
             }
         }
