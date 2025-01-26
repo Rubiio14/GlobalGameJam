@@ -845,17 +845,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7e213a20-2044-425f-bec1-dc0dadd31585",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d49e1509-ef46-40eb-8abd-c63b26fc0d4a",
                     "path": "<Keyboard>/escape",
                     "interactions": "",

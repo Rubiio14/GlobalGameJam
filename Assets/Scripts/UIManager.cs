@@ -20,20 +20,24 @@ public class UIManager : MonoBehaviour
         settingsMenu = false;
     }
 
-    public void InputActions(InputAction.CallbackContext context)
+    public void InputPause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (paused == false && SceneManager.GetSceneByBuildIndex(1) != null && settingsMenu == false)
+            {
+                PauseLVL();
+            }
+        }
+    }
+
+    public void InputBack(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
         {
             if (settingsMenu == true && SceneManager.GetSceneByBuildIndex(1) != null)
             {
                 DesactivateSettingsUI();
-            }
-        }
-        if (context.started)
-        {
-            if (paused == false && SceneManager.GetSceneByBuildIndex(1) != null && settingsMenu == false)
-            {
-                PauseLVL();
             }
         }
     }

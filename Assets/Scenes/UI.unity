@@ -3105,7 +3105,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1476284986}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: InputActions
+        m_MethodName: InputBack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3149,7 +3149,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1476284986}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: InputActions
+        m_MethodName: InputPause
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
