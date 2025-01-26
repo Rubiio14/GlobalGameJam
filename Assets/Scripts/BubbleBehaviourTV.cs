@@ -4,6 +4,7 @@ public class BubbleBehaviourTV : MonoBehaviour
 {
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _movSpeed = 2.5f;
+    public GameObject Video;
     public int currentWaypoint = 0;
 
 
@@ -28,6 +29,7 @@ public class BubbleBehaviourTV : MonoBehaviour
         {
             Debug.Log("Se han recorrido todos los waypoints. Desactivando la burbuja.");
             this.gameObject.SetActive(false);
+            Video.SetActive(true);
             //Empezar Cinemática
         }
     }
