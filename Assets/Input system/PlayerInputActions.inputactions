@@ -371,8 +371,8 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause/Back",
-                    "type": "Button",
+                    "name": "Pause",
+                    "type": "Value",
                     "id": "875527bf-8db1-4ea6-aac1-0126192a7e03",
                     "expectedControlType": "",
                     "processors": "",
@@ -850,7 +850,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause/Back",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -861,7 +861,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause/Back",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject pause;
     public bool paused;
     public bool settingsMenu;
+    public bool mainMenuUI;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class UIManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (paused == false && SceneManager.GetSceneByBuildIndex(1) != null && settingsMenu == false)
+            if (paused == false && SceneManager.GetSceneByBuildIndex(1).isLoaded && settingsMenu == false)
             {
                 PauseLVL();
             }
@@ -33,9 +34,9 @@ public class UIManager : MonoBehaviour
 
     public void InputBack(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
+        if (context.started)
         {
-            if (settingsMenu == true && SceneManager.GetSceneByBuildIndex(1) != null)
+            if (settingsMenu == true)
             {
                 DesactivateSettingsUI();
             }
@@ -75,18 +76,17 @@ public class UIManager : MonoBehaviour
     //Desactivate the UI settings
     public void DesactivateSettingsUI()
     {
+        settingsMenu = false;
+        settings.SetActive(false);
         //Main menu settings
-        if (SceneManager.GetSceneByBuildIndex(0) != null && settings != null)
+        if (SceneManager.GetSceneByBuildIndex(0).isLoaded && settings != null)
         {
-            settingsMenu = false;
-            settings.SetActive(false);
             mainMenu.SetActive(true);
         }
+
         //Pause menu settings
-        if (SceneManager.GetSceneByBuildIndex(1) != null && settings != null)
+        if (SceneManager.GetSceneByBuildIndex(1).isLoaded && settings != null)
         {
-            settingsMenu = false;
-            settings.SetActive(false);
             pause.SetActive(true);
         }
     }
