@@ -31,6 +31,7 @@ public class BubbleBehaviourTV : MonoBehaviour
             AudioManager.instance.PlayOneShot(FMODEvents.instance.ExplotarBurbuja, this.transform.position);
             this.gameObject.SetActive(false);
             Video.SetActive(true);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.AudioProyector, this.transform.position);
             //Empezar Cinemática
         }
     }
