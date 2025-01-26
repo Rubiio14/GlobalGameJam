@@ -1,11 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
+using FMOD.Studio;
 
 public class FinalCinematic : MonoBehaviour
 {
     public GameObject canvasVideo;
     public GameObject canvasInicio;
+
+    public EventInstance intro;
+    public EventInstance final;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +29,7 @@ public class FinalCinematic : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canvasVideo.SetActive(true);
+            final = AudioManager.instance.CreateInstance(FMODEvents.instance.Final);
         }
     }
     IEnumerator QuitCinematic()

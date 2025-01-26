@@ -26472,6 +26472,20 @@ MonoBehaviour:
       Data3: -1940208222
       Data4: -1641315403
     Path: event:/puerta
+  <Inicio>k__BackingField:
+    Guid:
+      Data1: -1118578146
+      Data2: 1212092433
+      Data3: 1164062854
+      Data4: 755345685
+    Path: event:/Intro
+  <Final>k__BackingField:
+    Guid:
+      Data1: -1718428252
+      Data2: 1269178538
+      Data3: 446127771
+      Data4: -595141638
+    Path: event:/Final
   <Footsteps>k__BackingField:
     Guid:
       Data1: 2007127104

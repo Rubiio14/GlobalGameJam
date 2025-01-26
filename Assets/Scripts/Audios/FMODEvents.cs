@@ -10,6 +10,12 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Abrir Puerta")]
     [field: SerializeField] public EventReference AbrirPuerta { get; private set; }
 
+    [field: Header("Inicio")]
+    [field: SerializeField] public EventReference Inicio { get; private set; }
+
+    [field: Header("Final")]
+    [field: SerializeField] public EventReference Final { get; private set; }
+
     [field: Header("Footsteps")]
     [field: SerializeField] public EventReference Footsteps { get; private set; }
 

@@ -7,6 +7,8 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     private List<EventInstance> eventInstances;
+
+    private EventInstance lvlMusicEventInstance;
     public static AudioManager instance {  get; private set; }
 
     private void Awake()
@@ -20,6 +22,11 @@ public class AudioManager : MonoBehaviour
         eventInstances = new List<EventInstance>();
     }
 
+    private void Start()
+    {
+        InitializeAmbience(FMODEvents.instance.Inicio);
+    }
+
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
@@ -30,6 +37,12 @@ public class AudioManager : MonoBehaviour
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         eventInstances.Add(eventInstance);
         return eventInstance;
+    }
+
+    public void InitializeAmbience(EventReference lvlMusicEventReference)
+    {
+        lvlMusicEventInstance = CreateInstance(lvlMusicEventReference);
+        lvlMusicEventInstance.start();
     }
 
     private void CleanUp()
