@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CollectableItem : MonoBehaviour
 {
+    public Rigidbody[] sillas;
     public bool concha = false;
     public bool estrella = false;
     public void OnTriggerEnter(Collider other)
@@ -16,6 +17,10 @@ public class CollectableItem : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             estrella = true;
+            foreach (Rigidbody silla in sillas)
+            {
+                silla.useGravity = true; // Activa la gravedad para cada Rigidbody
+            }
             Debug.Log("Recolecta Estrella");
         }
     }

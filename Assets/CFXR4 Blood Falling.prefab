@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2461203982218664524}
   - component: {fileID: 6077168872989578695}
   m_Layer: 0
-  m_Name: CFXR4 Rain Falling
+  m_Name: CFXR4 Blood Falling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.4852941, g: 0.4852941, b: 0.4852941, a: 1}
-      maxColor: {r: 1, g: 0.062866785, b: 0.020754695, a: 0.69803923}
+      maxColor: {r: 0, g: 0.3450591, b: 0.6156863, a: 0.69803923}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
